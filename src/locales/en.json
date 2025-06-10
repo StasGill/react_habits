@@ -5,7 +5,7 @@
   "meditation": "Meditation",
   "sport": "Sport",
   "start": "Start",
-  "stop": "Stop",
+  "stop": "Complete habit:",
   "clear": "Clear history",
   "time": "Time",
   "dailyStats": "Daily Statistics",
@@ -22,5 +22,6 @@
   "remove": "Remove",
   "langSwitch": "Language",
   "home": "Home",
-  "settings": "Settings"
+  "settings": "Settings",
+  "min": "minutes"
 }

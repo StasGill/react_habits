@@ -11,11 +11,12 @@ body {
 .tracker,
 .settings {
     max-width: 400px;
-    margin: 20px auto 90px auto;
+    // height: 100vh;
+    margin: 5px auto 0 auto;
     background: white;
-    padding: 20px;
+    padding: 20px 20px 110px 20px;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    //box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -37,6 +38,7 @@ input {
     border-radius: 8px;
     border: none;
     margin-top: 10px;
+    margin-bottom: 10px;
     box-sizing: border-box;
     /* Учитывает padding в общей ширине */
 }
@@ -106,7 +108,7 @@ table {
 
 th,
 td {
-    padding: 10px;
+    padding: 6px 2px;
     text-align: center;
     font-size: 0.9rem;
 }
@@ -139,12 +141,16 @@ td {
     position: fixed;
     bottom: 0;
     width: 96%;
-    background: #0088c2;
+    background: #0088c2e4;
     display: flex;
     justify-content: space-around;
     padding: 15px 0 30px 0;
     border-radius: 16px;
-    margin: 2% 2% 5% 2%;
+    margin: 2% auto 5% auto;
+    max-width: 436px;
+    bottom: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .bottom-nav .nav-item {
@@ -153,6 +159,7 @@ td {
     font-size: 18px;
     padding: 10px;
     font-weight: 500;
+    background-color: transparent;
 }
 
 .bottom-nav .nav-item.active {

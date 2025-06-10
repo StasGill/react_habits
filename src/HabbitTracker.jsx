@@ -27,7 +27,7 @@ const ProgressCircle = ({ progress }) => {
         cx="50"
         cy="50"
         r={radius}
-        stroke={progress >= 100 ? "#4CAF50" : "#6200ee"}
+        stroke={progress >= 100 ? "#4CAF50" : "#ff4d52"}
         strokeWidth="8"
         fill="none"
         strokeDasharray={circumference}
@@ -54,9 +54,7 @@ const HabitTracker = () => {
   });
   const [activities, setActivities] = useState(() => {
     const savedActivities = localStorage.getItem("habitActivities");
-    return savedActivities
-      ? JSON.parse(savedActivities)
-      : ["Чтение", "Медитация", "Спорт"];
+    return savedActivities ? JSON.parse(savedActivities) : ["Sport"];
   });
   const [goals, setGoals] = useState(() => {
     const savedGoals = localStorage.getItem("habitGoals");
@@ -83,7 +81,7 @@ const HabitTracker = () => {
 
   const formatTime = (milliseconds) => {
     const totalMinutes = Math.floor(milliseconds / 60000);
-    return `${totalMinutes} мин`;
+    return `${totalMinutes} ${t("min")}`;
   };
 
   const handleStart = () => {
@@ -130,7 +128,7 @@ const HabitTracker = () => {
 
               {timerActive ? (
                 <button onClick={handleStop} className="stop-btn">
-                  {t("stop")}
+                  {t("stop")} {formatTime(elapsedTime)}
                 </button>
               ) : (
                 <button
@@ -142,11 +140,11 @@ const HabitTracker = () => {
                 </button>
               )}
 
-              {timerActive && (
+              {/* {timerActive && (
                 <p className="timer">
                   {t("time")}: {formatTime(elapsedTime)}
                 </p>
-              )}
+              )} */}
 
               <h2>{t("dailyStats")}</h2>
               <table>
@@ -159,22 +157,25 @@ const HabitTracker = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {Object.entries(history).map(([date, activities]) =>
-                    Object.entries(activities).map(([activity, duration]) => {
-                      const goal = goals[activity] || 60;
-                      const progress =
-                        (Math.floor(duration / 60000) / goal) * 100;
-                      return (
-                        <tr key={`${date}-${activity}`}>
-                          <td>{date}</td>
-                          <td>{activity}</td>
-                          <td>{formatTime(duration)}</td>
-                          <td>
-                            <ProgressCircle progress={progress} />
-                          </td>
-                        </tr>
-                      );
-                    })
+                  {Object.entries(history)
+                  .map(([date, activities]) =>
+                    Object.entries(activities)
+                      .reverse()
+                      .map(([activity, duration]) => {
+                        const goal = goals[activity] || 60;
+                        const progress =
+                          (Math.floor(duration / 60000) / goal) * 100;
+                        return (
+                          <tr key={`${date}-${activity}`}>
+                            <td>{date}</td>
+                            <td>{activity}</td>
+                            <td>{formatTime(duration)}</td>
+                            <td>
+                              <ProgressCircle progress={progress} />
+                            </td>
+                          </tr>
+                        );
+                      })
                   )}
                 </tbody>
               </table>

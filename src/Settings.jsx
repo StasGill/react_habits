@@ -61,11 +61,11 @@ const Settings = ({
       </div>
 
       <div className="activity-grid">
-        {activities.map((activity) => (
+        {activities.reverse().map((activity) => (
           <div className="activity-card" key={activity}>
             <h3>{activity}</h3>
             <p>
-              {t("dailyGoal")}: {goals[activity] || 0} мин
+              {t("dailyGoal")}: {goals[activity] || 0} {t("min")}
             </p>
             <button
               className="remove-btn"
