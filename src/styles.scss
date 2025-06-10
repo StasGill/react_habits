@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.tracker,
+.settings {
+    max-width: 400px;
+    margin: 20px auto 90px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1,
+h2 {
+    font-weight: 900;
+    color: #333;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+select,
+button,
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    box-sizing: border-box;
+    /* Учитывает padding в общей ширине */
+}
+
+select {
+    background: #fff;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(203, 203, 203, 0.491)
+}
+
+button {
+    background-color: #0088c2b8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+.clear-btn {
+    background-color: #d32f2f;
+}
+
+.clear-btn:hover {
+    background-color: #b71c1c;
+}
+
+.timer {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6200ee;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+th {
+    background: #e3f2fd;
+}
+
+td {
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.settings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.settings li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #0088c2;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-radius: 16px 16px 0 0;
+}
+
+.bottom-nav .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.bottom-nav .nav-item.active {
+    border-bottom: 2px solid white;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Одна карточка на строку */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.activity-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.activity-card h3 {
+    margin: 0;
+    color: #6200ee;
+}
+
+.activity-card p {
+    font-size: 14px;
+    color: #333;
+}
+
+.remove-btn {
+    background-color: #d32f2fc7;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove-btn:hover {
+    background-color: #b71c1c;
+}
+
+.activity-form {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activity-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.activity-form button {
+    background-color: #0088c2b8;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.activity-form button:hover {
+    background-color: #3700b3;
+}
