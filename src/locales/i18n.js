@@ -1,16 +1,22 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import translationEN from "./locales/en.json";
-import translationRU from "./locales/ru.json";
+import translationEN from "./en.json";
+import translationRU from "./ru.json";
+import translationUK from "./uk.json";
 
 const resources = {
   en: { translation: translationEN },
   ru: { translation: translationRU },
+  uk: { translation: translationUK },
 };
 
 // Определение языка системы
-const systemLanguage = navigator.language.startsWith("ru") ? "ru" : "en";
+const systemLanguage = navigator.language.startsWith("ru")
+  ? "ru"
+  : navigator.language.startsWith("uk")
+  ? "uk"
+  : "en";
 
 i18n.use(initReactI18next).init({
   resources,

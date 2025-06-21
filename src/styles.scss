@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+// Шрифты
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Roboto+Condensed:wght@100..900&family=Roboto:wght@400;500;700&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -8,91 +8,67 @@ body {
     padding: 0;
 }
 
+// Общие стили контейнеров
 .tracker,
 .settings {
     max-width: 400px;
-    // height: 100vh;
-    margin: 5px auto 0 auto;
+    margin: 5px auto 0;
     background: white;
-    padding: 20px 20px 110px 20px;
+    padding: 20px 20px 110px;
     border-radius: 12px;
-    //box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+.settings-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+// Заголовки
 h1,
 h2 {
-    font-weight: 900;
+    font: 900 1.5rem "Roboto Condensed", sans-serif;
     color: #333;
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
 }
 
-select,
-button,
-input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    /* Учитывает padding в общей ширине */
-}
-
-select {
-    background: #fff;
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(203, 203, 203, 0.491);
-    appearance: none;
-    /* Убирает стандартное оформление */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    background-image: url('/arrow.svg');
-    /* Указываем путь */
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
-    /* Размер стрелки */
-    padding-right: 30px;
-}
-
-button {
-    background-color: #008b00;
+// Кнопки
+%button-base {
     color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
+    width: 100%;
 }
 
 .stop-btn {
+    @extend %button-base;
     background-color: red;
+
+    &:hover {
+        background-color: rgb(251, 72, 72);
+    }
 }
 
-.stop-btn:hover {
-    background-color: rgb(251, 72, 72);
-}
-
-button:hover {
-    background-color: #5cb300;
-}
-
-.clear-btn {
+.clear-btn,
+.remove-btn {
+    @extend %button-base;
     background-color: #d32f2f;
+    margin-top: 10px;
+
+    &:hover {
+        background-color: #b71c1c;
+    }
 }
 
-.clear-btn:hover {
-    background-color: #b71c1c;
+.activity-form button {
+    @extend %button-base;
+    background-color: green;
+    margin: 10px 0;
 }
 
+// Таймер
 .timer {
     font-size: 20px;
     font-weight: bold;
@@ -100,28 +76,30 @@ button:hover {
     margin-top: 10px;
 }
 
+// Таблица
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+
+    th,
+    td {
+        padding: 6px 2px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    th {
+        background: #e3f2fd;
+    }
+
+    td {
+        background: white;
+        border-bottom: 1px solid #ddd;
+    }
 }
 
-th,
-td {
-    padding: 6px 2px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-th {
-    background: #e3f2fd;
-}
-
-td {
-    background: white;
-    border-bottom: 1px solid #ddd;
-}
-
+// Настройки
 .settings ul {
     list-style: none;
     padding: 0;
@@ -134,53 +112,75 @@ td {
     background: #fff;
     border-radius: 8px;
     margin-bottom: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+// Нижнее меню
 .bottom-nav {
     position: fixed;
-    bottom: 0;
-    width: 96%;
-    background: #0088c2e4;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 0 30px 0;
-    border-radius: 16px;
-    margin: 2% auto 5% auto;
-    max-width: 436px;
     bottom: -5%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 96%;
+    max-width: 436px;
+    background: #0088c2e4;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0 30px;
+    border-radius: 16px;
+
+    .nav-item {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        font-weight: 500;
+
+        &.active {
+            border-bottom: 2px solid white;
+        }
+    }
 }
 
-.bottom-nav .nav-item {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    font-weight: 500;
-    background-color: transparent;
-}
-
-.bottom-nav .nav-item.active {
-    border-bottom: 2px solid white;
-}
-
-.activity-grid {
+// Активности
+.activity-grid,
+.activity-grid_oneCard {
     display: grid;
-    grid-template-columns: 1fr;
-    /* Одна карточка на строку */
     gap: 10px;
     margin-top: 20px;
 }
 
+.activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
 
-.activity-card {
+.activity-grid_oneCard {
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+}
+
+.activity-card,
+.activity-mainCard {
     background: #fff;
-    padding: 15px;
     border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.activity-mainCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+            0 10px 10px rgba(0, 0, 0, 0.22);
+    }
 }
 
 .activity-card h3 {
@@ -193,48 +193,45 @@ td {
     color: #333;
 }
 
-.remove-btn {
-    background-color: #d32f2fc7;
-    color: white;
-    border: none;
-    padding: 8px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.remove-btn:hover {
-    background-color: #b71c1c;
-}
-
+// Формы
 .activity-form {
     margin-top: 20px;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
 }
 
-.activity-form input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-.activity-form button {
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 8px;
+// Кнопки управления
+.start-btn,
+.item-btn {
     border: none;
+    font-weight: bold;
+    color: white;
     cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
+    border-radius: 50%;
 }
 
-.activity-form button:hover {
-    background-color: rgb(0, 154, 0);
+.start-btn {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(32, 166, 32);
+}
+
+.item-btn {
+    width: 370px;
+    height: 370px;
+}
+
+// Декор
+.header-emoji {
+    font-size: 3rem;
 }

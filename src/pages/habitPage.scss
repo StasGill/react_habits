@@ -1,0 +1,48 @@
+.habitCard {
+    &-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -51%);
+        z-index: 1;
+        width: 242px;
+        height: 242px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(32, 166, 32);
+        font-weight: bold;
+        color: white;
+    }
+
+    &-emoji {
+        font-size: 80px;
+    }
+
+    &-name {
+        font-size: 20px;
+
+    }
+
+    &-goal {
+        font-size: 20px;
+
+    }
+
+    &-start {
+        font-size: 40px;
+        margin-top: 10px;
+    }
+
+    &-container {
+        position: relative;
+    }
+}
+
+svg {
+    z-index: 2;
+}
+
+.red {
+    background-color: red;
+}

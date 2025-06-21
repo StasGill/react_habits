@@ -10,6 +10,9 @@ const BottomNav = () => {
       <NavLink to="/" className="nav-item">
         🏠 {t("home")}
       </NavLink>
+      <NavLink to="/add" className="nav-item">
+        ➕
+      </NavLink>
       <NavLink to="/settings" className="nav-item">
         ⚙️ {t("settings")}
       </NavLink>
